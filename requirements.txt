@@ -97,6 +97,7 @@ tensorflow==2.0.1
 tensorflow-estimator==2.0.1
 termcolor==1.1.0
 terminado==0.8.3
+langdetect==1.0.8
 testpath==0.4.4
 tornado==6.0.4
 traitlets==4.3.3
@@ -106,5 +107,6 @@ webencodings==0.5.1
 Werkzeug==1.0.1
 widgetsnbextension==3.5.1
 wrapt==1.12.1
+iso-639==0.4.5
 xlrd==1.2.0
 zipp==3.1.0

@@ -5,6 +5,10 @@ import unicodedata
 import re
 import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
+from langdetect import detect, DetectorFactory
+from iso639 import languages
+DetectorFactory.seed = 0
+
 
 
 def strip_html_tags(text):
@@ -114,3 +118,10 @@ def normalize_corpus(corpus, html_stripping=True, contraction_expansion=True,
         normalized_corpus.append(doc)
         
     return normalized_corpus
+
+def detect_language(text):
+    try:
+      lang = detect(text)
+      return lang, languages.get(alpha2=lang).name
+    except Exception as e:
+      return "NA", "NA"
