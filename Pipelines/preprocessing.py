@@ -1,127 +1,84 @@
-import spacy
-# from contractions import CONTRACTION_MAP
-from bs4 import BeautifulSoup
-import unicodedata
+import itertools
 import re
-import nltk
-from nltk.tokenize.toktok import ToktokTokenizer
-from langdetect import detect, DetectorFactory
-from iso639 import languages
-DetectorFactory.seed = 0
+import string
 
+import fasttext
+import spacy
+from spacy.tokens.doc import Doc
 
+from pycountry import languages
 
-def strip_html_tags(text):
-    """
-    Clean Up HTML from the text
-    
-    Args:
-        text (str): text that needs the html tags removed.
-
-    Returns:
-        str: processed string with HTML removed
-    """
-    soup = BeautifulSoup(text, "html.parser")
-    stripped_text = soup.get_text()
-    return stripped_text
-
-
-def remove_accented_chars(text):
-    text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8', 'ignore')
-    return text
-
-
-# def expand_contractions(text, contraction_mapping=CONTRACTION_MAP):
-    
-#     contractions_pattern = re.compile('({})'.format('|'.join(contraction_mapping.keys())), 
-#                                       flags=re.IGNORECASE|re.DOTALL)
-#     def expand_match(contraction):
-#         match = contraction.group(0)
-#         first_char = match[0]
-#         expanded_contraction = contraction_mapping.get(match)\
-#                                 if contraction_mapping.get(match)\
-#                                 else contraction_mapping.get(match.lower())                       
-#         expanded_contraction = first_char+expanded_contraction[1:]
-#         return expanded_contraction
+class Preprocessing():
+    def __init__(self, documents):
         
-#     expanded_text = contractions_pattern.sub(expand_match, text)
-#     expanded_text = re.sub("'", "", expanded_text)
-#     return expanded_text
-
-
-def remove_special_characters(text, remove_digits=False):
-    pattern = r'[^a-zA-z0-9\s]' if not remove_digits else r'[^a-zA-z\s]'
-    text = re.sub(pattern, '', text)
-    return text
-
-
-def lemmatize_text(text):
-    text = nlp(text)
-    text = ' '.join([word.lemma_ if word.lemma_ != '-PRON-' else word.text for word in text])
-    return text
-
-
-def simple_stemmer(text):
-    ps = nltk.porter.PorterStemmer()
-    text = ' '.join([ps.stem(word) for word in text.split()])
-    return text
-
-
-def remove_stopwords(text, is_lower_case=False):
-    tokens = tokenizer.tokenize(text)
-    tokens = [token.strip() for token in tokens]
-    if is_lower_case:
-        filtered_tokens = [token for token in tokens if token not in stopword_list]
-    else:
-        filtered_tokens = [token for token in tokens if token.lower() not in stopword_list]
-    filtered_text = ' '.join(filtered_tokens)    
-    return filtered_text
-
-
-def normalize_corpus(corpus, html_stripping=True, contraction_expansion=True,
-                     accented_char_removal=True, text_lower_case=True, 
-                     text_lemmatization=True, special_char_removal=True, 
-                     stopword_removal=True, remove_digits=True):
-    
-    normalized_corpus = []
-    # normalize each document in the corpus
-    for doc in corpus:
-        # strip HTML
-        if html_stripping:
-            doc = strip_html_tags(doc)
-        # remove accented characters
-        if accented_char_removal:
-            doc = remove_accented_chars(doc)
-        # expand contractions    
-        if contraction_expansion:
-            doc = expand_contractions(doc)
-        # lowercase the text    
-        if text_lower_case:
-            doc = doc.lower()
-        # remove extra newlines
-        doc = re.sub(r'[\r|\n|\r\n]+', ' ',doc)
-        # lemmatize text
-        if text_lemmatization:
-            doc = lemmatize_text(doc)
-        # remove special characters and\or digits    
-        if special_char_removal:
-            # insert spaces between special characters to isolate them    
-            special_char_pattern = re.compile(r'([{.(-)!}])')
-            doc = special_char_pattern.sub(" \\1 ", doc)
-            doc = remove_special_characters(doc, remove_digits=remove_digits)  
-        # remove extra whitespace
-        doc = re.sub(' +', ' ', doc)
-        # remove stopwords
-        if stopword_removal:
-            doc = remove_stopwords(doc, is_lower_case=text_lower_case)
-            
-        normalized_corpus.append(doc)
+        url_pattern = "^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9_]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
+        domain_pattern = "(?:[a-zA-Z0-9](?:[a-z0-9-_]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]"
         
-    return normalized_corpus
+        spacy.tokens.Token.set_extension("is_email", getter=lambda token: len(re.findall("\S+@\S+", token.text)) > 0 , force=True)
+        spacy.tokens.Token.set_extension("is_url", getter=lambda token: len(re.findall(url_pattern, token.text)) > 0, force=True)
+        spacy.tokens.Token.set_extension("is_domain", getter=lambda token: len(re.findall(domain_pattern, token.text)) > 0, force=True)
 
-def detect_language(text):
-    try:
-      lang = detect(text)
-      return lang, languages.get(alpha2=lang).name
-    except Exception as e:
-      return "NA", "NA"
+        spacy.tokens.Doc.set_extension("has_email", getter=lambda doc: len(re.findall("\S+@\S+", doc.text)) > 0, force=True)
+        spacy.tokens.Doc.set_extension("has_url", getter=lambda doc: len(re.findall(url_pattern, doc.text)) > 0, force=True)
+        spacy.tokens.Doc.set_extension("has_domain", getter=lambda doc: len(re.findall(domain_pattern, doc.text)) > 0, force=True)
+        spacy.tokens.Doc.set_extension("language", getter=lambda doc: self.detect_language(doc), force=True)
+
+        self.nlp = spacy.load("en_core_web_sm")
+        self.nlp.add_pipe(self.custom_cleaner, name="custom cleaner")
+
+        PRETRAINED_MODEL_PATH = '/tmp/lid.176.bin'
+        self.lang_model = fasttext.load_model(PRETRAINED_MODEL_PATH)
+
+        self.documents = documents
+
+    def adjust_characters(self, doc):
+        words = [token.text for token in doc]
+        words = [re.sub("[.]+", ". ", word).split() for word in words]
+        words = itertools.chain(words)
+        words = [re.sub("[-]+", "- ", word).split() for word in words]
+        return Doc(vocab=doc.vocab, words=words)
+
+    def remove_special_chars(self, doc):
+        words = [token.text for token in doc]
+        words = [re.sub(f"[^A-Za-z0-9{string.punctuation}]+", "", word) for word in words]
+        words = [word for word in words if word != ""]
+        return Doc(vocab=doc.vocab, words=words)
+
+
+    def remove_puctuation(self, doc):
+        words = [re.sub(f"[{string.punctuation}]+", " \1 ", token.text) if not token._.is_email and not token._.is_url and not token._.is_domain else token.text for token in doc]
+        words = ' '.join(words).split()
+        words = [word for word in words if word != "\x01"]
+        return Doc(vocab=doc.vocab, words=words)
+
+
+    def remove_stopwords(self, doc):
+        words = [token.text for token in doc if not token.is_stop]
+        return Doc(vocab=doc.vocab, words=words)
+
+
+    def apply_lemmatization(self, doc):
+        words = [token.lemma_ for token in doc]
+        return Doc(vocab=doc.vocab, words=words)
+
+
+    def detect_language(self, doc):
+        try:
+            predictions = self.lang_model.predict(doc.text)
+            lang = predictions[0][0].split("__")[-1]
+            score = predictions[1][0]
+            name = languages.get(alpha_2=lang).name
+            return (name, lang, score)
+        except Exception as e:
+            return ("NA", "NA", 0)
+
+
+    def custom_cleaner(self, doc):
+        doc = self.remove_special_chars(doc)
+        doc = self.remove_puctuation(doc)
+        doc = self.remove_stopwords(doc)
+        doc = self.apply_lemmatization(doc)
+        return doc
+
+    def run(self):
+        return list(self.nlp.pipe(self.documents))
