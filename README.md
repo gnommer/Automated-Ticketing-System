@@ -59,8 +59,8 @@ In this project, the goal is to build a classifier that can classify the tickets
 text.
 
 ## File Structure:
-[Dataset](./Dataset/Dataset.xlsx): Ticket Dataset for the Project. \
-[EDA](./colab_version.ipynb): Analysis of the Dataset. \
-[Requirements](./requirements.txt): Required Packages for the Project to Function.\
-[Pipelines](./Pipelines): Necessary Dependencies for the Notebooks.
+- [Dataset](./Dataset/Dataset.xlsx): Ticket Dataset for the Project.
+- [EDA](./colab_version.ipynb): Analysis of the Dataset.
+- [Requirements](./requirements.txt): Required Packages for the Project to Function.
+- [Pipelines](./Pipelines): Necessary Dependencies for the Notebooks.
 
