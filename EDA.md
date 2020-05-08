@@ -347,7 +347,7 @@ plt.show()
 ```
 
 
-![png](output_20_0.png)
+![png](images/output_20_0.png)
 
 
 There are clear bins formed for the complaints when the issues are explored in a log scale. Group 0 is the highest
@@ -363,7 +363,7 @@ plt.show()
 ```
 
 
-![png](output_22_0.png)
+![png](images/output_22_0.png)
 
 
 #### Presence of different languages
@@ -436,7 +436,7 @@ plt.show()
 ```
 
 
-![png](output_26_0.png)
+![png](images/output_26_0.png)
 
 
 

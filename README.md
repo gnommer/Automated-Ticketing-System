@@ -65,4 +65,4 @@ text.
 - [Pipelines](./Pipelines): Necessary Dependencies for the Notebooks.
 
 
-
+[EDA]({{site.url}}/EDA)
