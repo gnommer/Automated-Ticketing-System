@@ -1,37 +1,66 @@
-## Welcome to GitHub Pages
+# Automated Ticketing System
 
-You can use the [editor on GitHub](https://github.com/Gnommer/Automated-Ticketing-System/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This is the source code for the online project which is built as a partial fullfilment of the PGP-AIML Course from Great Lakes Institute of Management.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## The Real Problem:
+One of the key activities of any IT function is to “Keep the lights on” to ensure there is no
+impact to the Business operations. IT leverages Incident Management process to achieve the
+above Objective. An incident is something that is unplanned interruption to an IT service or
+reduction in the quality of an IT service that affects the Users and the Business. The main goal
+of Incident Management process is to provide a quick fix / workarounds or solutions that
+resolves the interruption and restores the service to its full capacity to ensure no business
+impact.
 
-### Markdown
+In most of the organizations, incidents are created by various Business and IT Users, End
+Users/ Vendors if they have access to ticketing systems, and from the integrated monitoring
+systems and tools. Assigning the incidents to the appropriate person or unit in the support
+team has critical importance to provide improved user satisfaction while ensuring better
+allocation of support resources. The assignment of incidents to appropriate IT groups is still a
+manual process in many of the IT organizations.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Manual assignment of incidents is time consuming and requires human efforts. There may be
+mistakes due to human errors and resource consumption is carried out ineffectively because of
+the misaddressing. On the other hand, manual assignment increases the response and
+resolution times which result in user satisfaction deterioration / poor customer service.
 
-```markdown
-Syntax highlighted code block
+## Business Domain Value:
+In the support process, incoming incidents are analyzed and assessed by organization’s
+support teams to fulfill the request. In many organizations, better allocation and effective usage
+of the valuable support resources will directly result in substantial cost savings.
 
-# Header 1
-## Header 2
-### Header 3
+Currently the incidents are created by various stakeholders (Business Users, IT Users and
+Monitoring Tools) within IT Service Management Tool and are assigned to Service Desk teams
+(L1 / L2 teams). This team will review the incidents for right ticket categorization, priorities and
+then carry out initial diagnosis to see if they can resolve. Around ~54% of the incidents are
+resolved by L1 / L2 teams. Incase L1 / L2 is unable to resolve, they will then escalate / assign
+the tickets to Functional teams from Applications and Infrastructure (L3 teams). Some portions
+of incidents are directly assigned to L3 teams by either Monitoring tools or Callers /
+Requestors. L3 teams will carry out detailed diagnosis and resolve the incidents. Around ~56% 
+of incidents are resolved by Functional / L3 teams. Incase if vendor support is needed, they will
+reach out for their support towards incident closure.
 
-- Bulleted
-- List
+L1 / L2 needs to spend time reviewing Standard Operating Procedures (SOPs) before
+assigning to Functional teams (Minimum ~25-30% of incidents needs to be reviewed for SOPs
+before ticket assignment). 15 min is being spent for SOP review for each incident. Minimum of
+~1 FTE effort needed only for incident assignment to L3 teams.
 
-1. Numbered
-2. List
+During the process of incident assignments by L1 / L2 teams to functional groups, there were
+multiple instances of incidents getting assigned to wrong functional groups. Around ~25% of
+Incidents are wrongly assigned to functional teams. Additional effort needed for Functional
+teams to re-assign to right functional groups. During this process, some of the incidents are in
+queue and not addressed timely resulting in poor customer service.
 
-**Bold** and _Italic_ and `Code` text
+Guided by powerful AI techniques that can classify incidents to right functional groups can
+help organizations to reduce the resolving time of the issue and can focus on more productive
+tasks.
 
-[Link](url) and ![Image](src)
-```
+## Project Description:
+In this project, the goal is to build a classifier that can classify the tickets by analysing
+text.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## File Structure:
+[Dataset](./Dataset/Dataset.xlsx): Ticket Dataset for the Project. \
+[EDA](./colab_version.ipynb): Analysis of the Dataset. \
+[Requirements](./requirements.txt): Required Packages for the Project to Function.\
+[Pipelines](./Pipelines): Necessary Dependencies for the Notebooks.
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Gnommer/Automated-Ticketing-System/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
