@@ -65,4 +65,4 @@ text.
 - [Pipelines](./Pipelines): Necessary Dependencies for the Notebooks.
 
 ## EDA
-the EDA for the data is present here [EDA]({{ site.github.repository_url }}/EDA)
+the EDA for the data is present here [EDA]({{relative_url}}/EDA)

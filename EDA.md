@@ -471,17 +471,19 @@ df.head()
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
-        overflow-x: scroll;
     }
 
     .dataframe tbody tr th {
         vertical-align: top;
-        overflow-x: scroll;
     }
 
     .dataframe thead th {
         text-align: right;
-        overflow-x: scroll;
+    }
+    table{
+      display: block;
+      width: 100%;
+      overflow: auto;
     }
 </style>
 <table border="1" class="dataframe">
