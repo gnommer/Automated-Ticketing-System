@@ -64,5 +64,5 @@ text.
 - [Requirements](./requirements.txt): Required Packages for the Project to Function.
 - [Pipelines](./Pipelines): Necessary Dependencies for the Notebooks.
 
-
-[EDA]({{site.url}}/EDA)
+## EDA
+the EDA for the data is present here [EDA]({{ site.github.repository_url }}/EDA)
