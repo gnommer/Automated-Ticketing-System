@@ -64,3 +64,8 @@ text.
 - [Requirements](./requirements.txt): Required Packages for the Project to Function.
 - [Pipelines](./Pipelines): Necessary Dependencies for the Notebooks.
 
+## EDA
+- [notebook](./_layout/colab_version.html)
+- [slides](./_layout/colab_version.slides.html)
+
+
