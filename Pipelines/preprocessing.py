@@ -36,6 +36,7 @@ class Preprocessing():
         words = [re.sub("[.]+", ". ", word).split() for word in words]
         words = itertools.chain(words)
         words = [re.sub("[-]+", "- ", word).split() for word in words]
+        words = [re.sub("[_]+", " ", word).split() for word in words]
         return Doc(vocab=doc.vocab, words=words)
 
     def remove_special_chars(self, doc):
