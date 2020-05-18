@@ -66,3 +66,6 @@ text.
 
 ## EDA
 the EDA for the data is present here [EDA](./EDA)
+
+## Capstone Interim Report
+[report](./Automatic_Ticket_Assignment-Milestone_1.html)

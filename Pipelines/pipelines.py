@@ -2,6 +2,7 @@ import warnings
 
 import pandas as pd
 
+from ftfy import fix_encoding, fix_text, badness
 from .preprocessing import Preprocessing
 
 warnings.filterwarnings('ignore')
@@ -17,7 +18,12 @@ class NLP_Pipeline():
         return self.df
     
     def preprocess_data(self):
-        self.df = self.df.dropna()
+        # null imputation
+        self.df = self.df.fillna(str())
+        # mojibake fix
+        self.df["Description"].apply(fix_text)
+        self.df["Short description"].apply(fix_text)
+        # preprocessing using spacy
         pp1 = Preprocessing(self.df["Description"].values)
         pp2 = Preprocessing(self.df["Short description"].values)
         self.df["clean_des"] = pp1.run()
