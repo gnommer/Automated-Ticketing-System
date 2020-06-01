@@ -60,13 +60,11 @@ text.
 
 ## File Structure:
 - [Dataset](./src/Dataset/Dataset.xlsx): Ticket Dataset for the Project.
-- [EDA](./src/colab_version.ipynb): Analysis of the Dataset.
+- [Models](./src/Models): Models used for the Analysis.
+- [pickles](./src/pickles): State of the Project Files.
 - [Requirements](./src/requirements.txt): Required Packages for the Project to Function.
-- [Pipelines](./src/Pipelines): Necessary Dependencies for the Notebooks.
 
-## EDA
-the EDA for the data is present here [EDA](./docs/EDA)
-
-## Capstone Interim Report
-[report](./docs/Automatic_Ticket_Assignment-Milestone_1.html)
-[report](./docs/Automatic_Ticket_Assignment-Milestone_2.html)
+## Capstone Reports
+- [Capstone Interim Report](./docs/Automatic_Ticket_Assignment-Milestone_1.html)
+- [Capstone Final Model Notebook](./docs/Automatic_Ticket_Assignment-Milestone_2.html)
+- [Capstone Final Report](./docs/final_report.pdf)
