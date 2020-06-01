@@ -1,0 +1,108 @@
+\begin{thebibliography}{10}
+
+\bibitem{googletrans}
+{SuHan Han}, ``googletrans 2.4.0,'' 2018.
+\newblock \url{https://pypi.org/project/googletrans/}.
+
+\bibitem{wordcloud}
+{DUONG Vu}, ``Generating wordclouds in python,'' 2019.
+\newblock \url{https://www.datacamp.com/community/tutorials/wordcloud-python}.
+
+\bibitem{NLP1}
+{Javed Shaikh}, ``Machine learning, nlp: Text classification using scikit-learn
+  ,python and nltk,'' 2017.
+\newblock
+  \url{https://towardsdatascience.com/machine-learning-nlp-text-classification-using-scikit-learn-python-and-nltk-c52b92a7c73a}.
+
+\bibitem{googletranserror}
+{}, ``Googletrans api error - expecting value: line 1 column 1 (char 0).''
+\newblock
+  \url{https://stackoverflow.com/questions/49497391/googletrans-api-error-expecting-value-line-1-column-1-char-0}.
+
+\bibitem{polyglot}
+{abo Samoor}, ``Multilingual text (nlp) processing toolkit,'' 2019.
+\newblock \url{https://github.com/aboSamoor/polyglot}.
+
+\bibitem{preprocessing}
+{Mor Kapronczay}, ``Text preprocessing in different languages for natural
+  language processing in python,'' 2019.
+\newblock
+  \url{https://medium.com/starschema-blog/text-preprocessing-in-different-languages-for-natural-language-processing-in-python-fb106f70b554}.
+
+\bibitem{preprocessing2}
+{Olga Davydova}, ``Text preprocessing in python: Steps, tools, and examples,''
+  2018.
+\newblock
+  \url{https://www.kdnuggets.com/2018/11/text-preprocessing-python.html}.
+
+\bibitem{preprocessing3}
+{jacob peralta}, ``Text preprocessing in python | set – 1.''
+\newblock
+  \url{https://www.geeksforgeeks.org/text-preprocessing-in-python-set-1/}.
+
+\bibitem{mlwhiz}
+{MLWhiz}, ``Nlp learning series: Part 1 - text preprocessing methods for deep
+  learning,'' 2019.
+\newblock
+  \url{https://mlwhiz.com/blog/2019/01/17/deeplearning_nlp_preprocess/}.
+
+\bibitem{eda-nlp-ml}
+{William Jaubert}, ``Eda - nlp - ml,'' 2018.
+\newblock \url{https://www.kaggle.com/wil2210/eda-nlp-ml}.
+
+\bibitem{eda}
+{Susan LI}, ``A complete exploratory data analysis and visualization for text
+  data,'' 2019.
+\newblock
+  \url{https://towardsdatascience.com/a-complete-exploratory-data-analysis-and-visualization-for-text-data-29fb1b96fb6a}.
+
+\bibitem{ITSTC}
+{Pankaj Kishore}, ``It support ticket classification and deployment using
+  machine learning and aws lambda,'' 2019.
+\newblock
+  \url{https://towardsdatascience.com/it-support-ticket-classification-and-deployment-using-machine-learning-and-aws-lambda-8ef8b82643b6}.
+
+\bibitem{TAUNLTK}
+{Rohit Ayinaparthy}, ``Text analytics using nlp(nltk) - it incidents,'' 2018.
+\newblock
+  \url{https://www.kaggle.com/rohitayinaparthy/text-analytics-using-nlp-nltk-it-incidents}.
+
+\bibitem{supporttc}
+{Karol Zak}, ``support-tickets-classification.''
+\newblock \url{https://github.com/karolzak/support-tickets-classification}.
+
+\bibitem{Cluster}
+{brandonmrose}, ``Document clustering with python.''
+\newblock \url{http://brandonrose.org/clustering}.
+
+\bibitem{topicmodelling}
+{Shashank Kapadia}, ``Topic modeling in python: Latent dirichlet allocation
+  (lda),'' 2019.
+\newblock
+  \url{https://towardsdatascience.com/end-to-end-topic-modeling-in-python-latent-dirichlet-allocation-lda-35ce4ed6b3e0}.
+
+\bibitem{topicmodelling2}
+{Shivam Bansal}, ``Beginners guide to topic modeling in python,'' 2016.
+\newblock
+  \url{https://www.analyticsvidhya.com/blog/2016/08/beginners-guide-to-topic-modeling-in-python/}.
+
+\bibitem{gensim}
+{Selva Prabhakaran}, ``Topic modeling with gensim (python).''
+\newblock
+  \url{https://www.machinelearningplus.com/nlp/topic-modeling-gensim-python/}.
+
+\bibitem{kmeans}
+{}, ``kmeans text clustering.''
+\newblock \url{https://pythonprogramminglanguage.com/kmeans-text-clustering/}.
+
+\bibitem{kmeans2}
+{Mikhail Salnikov}, ``Text clustering with k-means and tf-idf,'' 2018.
+\newblock
+  \url{https://medium.com/@MSalnikov/text-clustering-with-k-means-and-tf-idf-f099bcf95183}.
+
+\bibitem{SRK}
+{SRK}, ``Simple feature engg notebook - spooky author,'' 2017.
+\newblock
+  \url{https://www.kaggle.com/sudalairajkumar/simple-feature-engg-notebook-spooky-author}.
+
+\end{thebibliography}

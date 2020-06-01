@@ -1,0 +1,19 @@
+
+\section{Feature Engineering}
+Some Notable Features generated as part of the Analysis are as follows:
+
+\begin{itemize}
+    \item word length: $\#$ of words in a document.
+    \item lines: $\#$ of lines in a document.
+    \item shifts: time of the shift when the ticket was generated i.e general, night, morning.
+\end{itemize}
+
+All these features are merged into the Summary Feature so that its can be passed into the DL models with ease.
+
+\section{Pre-Processing}
+The dataset is first balanced using undersampling mentioned in the section 3 using LDA and oversampled.
+this will ensure that the models are more accurate on all classes and has sufficient training examples for the models.
+
+for the word-embeddings gensim package was used to build a custom doc2vec model. this model provides the necessary embedding weights for training the DL models.
+for the Classical ML models TF-IDF (Term Frequency - Inverse Document Frequency) was used using sklearn package.
+

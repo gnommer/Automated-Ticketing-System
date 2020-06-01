@@ -1,0 +1,68 @@
+\section{Modeling}
+\subsection{Intial Training}
+Modeling was performed using many classical models and they can be refered from \textbf{Table~\ref{tab:mlmodels}}. Here its clear that the Classical Models are perfoming really well in accuracy . but on further inspection it is noted that the models are overfitting the dataset. so after careful analysis of the accuracy of the models,
+It is decided to use \textbf{Reccurrent Neural Networks with LSTM} as the Benchmark Model for further analysis.
+
+\begin{table}[H]
+    \begin{tabular}{p{4.5cm}cp{1cm}}
+    \textbf{Model} & \textbf{Accuracy (\%)} \\ \\
+    \hline \\
+    Support Vector Machine - Linear    & 68 \\
+    Deep Neural Network                & 64 \\
+    Support Vector Machine - RBF       & 62 \\
+    Random Forest                      & 62 \\
+    K Nearest Neighbours               & 61 \\
+    Reccurent Neural Network with LSTM & 57 \\
+    Decision Tree                      & 56 \\
+    Recurrent Neural Network           & 54 \\
+    Convolutional Neural Network       & 53 \\
+    Multinomial Naïve Bayes Classifier & 52 \\
+    Recurrent Neural Network           & 5 \\
+    \hline
+    \end{tabular}
+    \caption{ML Models Results}
+    \label{tab:mlmodels}
+\end{table}
+
+
+\subsection{Hyperparameter Tuning and Optimizations}
+Out of all the models tested, Support Vector Machine (SVM) under statistical ML algorithms and Neural Networks are performing better than all others. The models were highly overfitted and one of the obvious reason was the dataset was highly imbalanced. Ratio of GRP\_0 to all others is 47:53 and there are 40 groups having less than or equal to 30 tickets assigned each.
+
+\begin{table}[H]
+    \begin{tabular}{p{4cm}p{1.35cm}p{1.35cm}}
+    & \textbf{Accuracy (\%)} \\ \\
+    \hline \\
+    \textbf{Model} & \textbf{Train} & \textbf{Test} \\\\
+    \hline \\ 
+    Iteration 2 (increase LSTM units) & 94.93 & 92.46 \\
+    Iteration 3 (adding dense,dropout,batchnorm layers) & 94.22 & 92.41 \\
+    Iteration 4 (adding Adam) & 94.15 & 92.88 \\
+    Iteration 1 (changing dropout) & 93.50 & 93.08 \\
+    Base (Benchmark Model) & 90.36 & 90.43 \\
+    \hline
+    \end{tabular}
+    \caption{DL Models Results}
+    \label{tab:DLmodels}
+\end{table}
+
+\begin{figure}[H]
+    \includegraphics[width=0.45\textwidth]{Accuracyvepoch}
+    \caption{Train vs Validation Accuracy}
+    \label{fig:trainvalacc}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=0.45\textwidth]{lossvepoch}
+    \caption{Train vs Validation Loss}
+    \label{fig:trainvalloss}
+\end{figure}
+
+
+The accuracy of each flavors of LSTM model is as follows in the \textbf{Table~\ref{tab:DLmodels}}. This is clear indicative of how LSTM, in the family of RNN is efficient of dealing with textual data.
+\begin{itemize}
+    \item There is a bump in the model performance upto the range 92.21 to 93.31 with 95\% confidence level.
+    \item Making the dataset balanced, helped the model to be trained more accurately.
+    \item Creating custom word embbeddings helped finding better representation of keywords of the corpus.
+    \item Hyperparameter tuning resulted in finding the model with more accuracy without overfitting, which is evident from the train vs. validation accuracy curve \textbf{Figure~\ref{fig:trainvalacc}} and Loss Curve \textbf{Figure~\ref{fig:trainvalloss}}.
+\end{itemize}
+

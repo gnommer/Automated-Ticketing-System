@@ -1,6 +1,0 @@
-fasttext==0.9.2
-pycountry==19.8.18
-nltk==3.4.5
-ftfy==5.7
-futures==3.1.1 
-goslate==1.5.1

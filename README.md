@@ -59,13 +59,14 @@ In this project, the goal is to build a classifier that can classify the tickets
 text.
 
 ## File Structure:
-- [Dataset](./Dataset/Dataset.xlsx): Ticket Dataset for the Project.
-- [EDA](./colab_version.ipynb): Analysis of the Dataset.
-- [Requirements](./requirements.txt): Required Packages for the Project to Function.
-- [Pipelines](./Pipelines): Necessary Dependencies for the Notebooks.
+- [Dataset](./src/Dataset/Dataset.xlsx): Ticket Dataset for the Project.
+- [EDA](./src/colab_version.ipynb): Analysis of the Dataset.
+- [Requirements](./src/requirements.txt): Required Packages for the Project to Function.
+- [Pipelines](./src/Pipelines): Necessary Dependencies for the Notebooks.
 
 ## EDA
-the EDA for the data is present here [EDA](./EDA)
+the EDA for the data is present here [EDA](./docs/EDA)
 
 ## Capstone Interim Report
-[report](./Automatic_Ticket_Assignment-Milestone_1.html)
+[report](./docs/Automatic_Ticket_Assignment-Milestone_1.html)
+[report](./docs/Automatic_Ticket_Assignment-Milestone_2.html)

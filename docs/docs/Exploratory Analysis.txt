@@ -1,0 +1,80 @@
+
+\subsection{Exploratory Data Analysis}
+
+It is observed that major number of tickets are places in \textbf{GRP\_0} from \textbf{Figure~\ref{fig:target_dist}}. the no of tickets assigned to GRP\_0 is close to 4000 out of 8500 records, which is 46.8\% in volume. Some resampling has to be applied inorder to balance it.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Target_Distribution}
+    \caption{Assignment Group Distibution}
+    \label{fig:target_dist}
+\end{figure}
+
+The  $2^{nd}$ highest assignment group is GRP\_8, which is just 7.78\% of the total dataset and  1/6 th of the GRP\_0.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{rare_tickets}
+    \caption{Rare Tickets Distibution}
+    \label{fig:rare-tickets}
+\end{figure}
+
+There are 40 groups with just 25 or less tickets assigned in \textbf{Figure~\ref{fig:rare-tickets}}, amongst which 6 groups happened to be assigned with just 1 ticket and 4 groups with just 2 tickets each.
+As assignment group attribue is the target column in our dataset, these tickets distribution shows the dataset is miserably imbalanced.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{caller pie chart}
+    \caption{Caller Contribution}
+    \label{fig:caller-contrib}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.35\textwidth]{caller_dist}
+    \caption{Top 5 Callers in Top 10 Assignment Groups}
+    \label{fig:caller-contrib2}
+\end{figure}
+
+The Callers Distibution is also imbalanced as only one particular caller is generating all the tickets \textbf{Figure~\ref{fig:caller-contrib}}. From \textbf{Figure~\ref{fig:caller-contrib2}} its clear that for certain groups certain members are creating major tickets.
+
+
+
+
+\textbf{N-Gram} analysis was also perfomed to understand any form or patterns present in the words of the dataset and It's indicative from \textbf{Figure~\ref{fig:word-cloud}} that the entire dataset speaks more about issues around
+
+\begin{itemize}
+    \item password reset (1246 times)
+    \item fail job\_scheduler (1614 times)
+    \item outlook (948 times)
+    \item login (861 times)
+    \item job fail (897 times)
+\end{itemize}
+
+Analysis on GRP\_0 which is the most frequent group to assign a ticket to reveals that this group deals with mostly the maintenance problems such as password reset, account lock, login issue, ticket update etc.
+Maximum of the tickets from GRP\_0 can be reduced by self correcting itself by putting automation scripts/mechanisms to help resolve these common maintenance issues. This will help in lowering the inflow of service tickets thereby saving the person/hour efforts spend and increasing the business revenue.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{word cloud}
+    \caption{Word Cloud of Summary Feature}
+    \label{fig:word-cloud}
+\end{figure}
+
+After performing topic modeling using \textbf{LDA (Latent Dirichlet Allocation)} it was more clear how the allocation of the issues was to be done inorder to resample the GRP\_0 tickets.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{topic-modeling}
+    \caption{Word Cloud of Summary Feature}
+    \label{fig:topic-modeling}
+\end{figure}
+
+The GRP\_0 were now undersampled into the following categories for balancing the dataset. They are:
+\begin{enumerate}
+    \item Communication Issue
+    \item Account/Password Reset
+    \item Access Issue
+    \item Other Issues
+\end{enumerate}
+

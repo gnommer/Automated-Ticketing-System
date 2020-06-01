@@ -1,0 +1,41 @@
+\section{Summary}
+
+Because of the Data Modeling its very clear on how the ticketing system model can classify the tickets effectively. there are other benefits of such system which are listed below.
+
+\subsubsection*{Benefits:}
+
+\begin{enumerate}
+    \item Increase in Customer Satisfaction.
+    \item Decrease in the response and resolution time.
+    \item Eliminate human error in Ticket Assignment. (Which was $\sim$25\% Incidents)
+    \item Avoid missing SLAs due to error in Ticket Assignment.
+    \item Eliminate any Financial penalty associated with missed SLAs.
+    \item Excellent Customer Service.
+    \item Reallocate ($\sim$ 1 FTE) requirement for Productive Work. 
+    \item Increase in morale of L1 / L2 Team.
+    \item Eradicate 15 mins Effort spent for SOP review ($\sim$ 25-30\% of Incidents or 531.25-637.5 Person Hours).
+    \item Decrease in associated Expense.
+    \item L1 / L2 Team can focus on resolving $\sim$ 54\% of the incidents
+    \item Functional / L3 teams can focus on resolving $\sim$ 56\% of incidents
+\end{enumerate}
+
+$\sim$1 FTE from L1 / L2 Team saved through automating Ticket Assignment can focus on Continuous Improvement activities.
+$\sim$ 25\% of Incidents which is 2125 additional Incidents will now get resolved within SLA.
+
+\subsubsection*{Additional Business Insights:}
+
+\begin{enumerate}
+    \item Root cause analysis (RCA) need to be performed on job\_scheduler, to understand the cause of failure.
+    No. of Incident Ticket reduction expected by performing RCA: 1928. 
+    22.68\% of Total Incident volume of 8500.
+    Hence, we can reduce the Resource / FTE allocation also by approximately 22.68\%.
+    \item Password Rest process need to be automated.
+    No. of Incident Ticket reduction expected by automating password reset process:- 1246
+    14.66\% of Total Incident volume of 8500. 
+    Hence, we can reduce the Resource / FTE allocation also by approximately 14.66\%.
+    Hence a cumulative reduction of 3174 Incidents means 37.34\% reduction in Total Incident volume of 8500. 
+    Hence, cumulative Resource / FTE allocation reduction by approximately 37.34\%.
+    Business can operate at $\sim$62.66\% of original Estimates.
+\end{enumerate}
+\end{multicols}
+
