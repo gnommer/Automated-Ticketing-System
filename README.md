@@ -69,3 +69,4 @@ the EDA for the data is present here [EDA](./docs/EDA)
 
 ## Capstone Interim Report
 [report](./docs/Automatic_Ticket_Assignment-Milestone_1.html)
+[report](./docs/Automatic_Ticket_Assignment-Milestone_2.html)

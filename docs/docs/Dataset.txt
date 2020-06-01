@@ -1,0 +1,41 @@
+\section{Dataset}
+
+The Dataset is provide by Great Learning from the course PGP-AIML as a part of the capstone project assignment. The Dataset Consists of the following columns.
+
+\begin{itemize}
+    \item \textbf{Short Description}: Short description of the issue.
+    \item \textbf{Description}: Detailed Description of the issue.
+    \item \textbf{Caller}: Caller who has generated the ticket.
+    \item \textbf{Assignment Group}: which group has to resolve the issue
+\end{itemize}
+
+Some Data Cleaning and EDA is perfomed on the dataset before any analysis can be done on the dataset.
+
+
+\section{Data Cleaning and EDA}
+It is observed there are lots of inconsistencies and issues with the current dataset. so it has to be further processed before perfoming any sort of analysis.
+
+\subsection{Data Cleaning}
+The Dataset is first checked for any inconsistencies and NULL treatement is applied. In the process it was identified that 8 records had missing data. The null were replaced with empty strings inorder to avoid any data loss. some encoding issues were identified in the Dataset. This issue is particularly refered to as \textbf{Mojibake}. it is the garbled text that is the result of text being decoded using an unintended character encoding. The result is a systematic replacement of symbols with completely unrelated ones, often from a different writing system.
+
+The library ftfy (Fixes Text For You) has a greater ability to detect, fix and deal with such Mojibakes. It fixes Unicode that’s broken in various ways. The goal of ftfy is to take in bad Unicode and output good Unicode. The  grabled characters were successfully recovered using ftfy however it is observed that the row\# 8471 is not English but Mandarine.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{languages pie}
+\caption{Non-English tickets present in the Dataset}
+\label{fig:nonentickets}
+\end{figure}
+
+So the data in our hand is \textbf{multilingual} and it is quite not possible to derive embeddings for mix of multiple language which is clearly evident from \textbf{Figure~\ref{fig:nonentickets}}. Nearly 41 Languages were detected in the Dataset. Its decided to translate the entire dataset into a single language of English. The GoSlate Library is used for this purpose to perfom any translation on the dataset and also identify the distibution of the issues.
+
+other forms of cleansing functions applied are as follows:
+\begin{itemize}
+    \item converting all letters to lower or upper case
+    \item converting numbers into words or removing numbers
+    \item removing punctuations, accent marks and other diacritics
+    \item removing white spaces
+    \item removing stop words, sparse terms, and particular words
+    \item text canonicalization
+    \item Lematization
+\end{itemize}
+The above process was achieved using a custom cleaning function and Spacy nlp pipelines.
